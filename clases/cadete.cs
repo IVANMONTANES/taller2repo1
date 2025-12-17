@@ -4,11 +4,19 @@ namespace EspacioCadete
 {
     public class Cadete
     {
-        private int Id;
+        private string Id;
         private string Nombre;
         private string Direccion;
         private string Telefono;
         public List<Pedido> ListadoPedidos = new List<Pedido>();
+
+        public Cadete(string id, string nombre, string direccion, string telefono)
+        {
+            Id = id;
+            Nombre = nombre;
+            Direccion = direccion;
+            Telefono = telefono;
+        }
 
         // metodos //
         public int JornalACobrar()

@@ -14,5 +14,19 @@
 - deberia tener un metodo para saber cuantos pedidos despacho
 
 ##  Teniendo en cuenta los principios de abstracción y ocultamiento, que campos, propiedades y métodos deberían ser públicos y cuáles privados.
+### CADETERIA
+Nombre -> campo privado con un getter pues no queremos modificar el nombre de la cadeteria
+Telefono -> campo privado con un getter pues no queremos modificar el telefono de la cadeteria
+ListadoCadetes -> campo privado con un getter pues no queremos modificar el listado de cadetes.
+
+### CADETE
+Id -> Campo privado pues no queremos modificar el Id del cadete
+Nombre -> Campo privado pues no queremos modificar el Nombre del cadete
+Direccion -> Campo privado pues no queremos modificar la Direccion del cadete
+Telefono -> Campo Privado pues no queremos modificar el Telefono del cadete
+ListadoPedidos -> Campo Privado con un getter y un setter definidos pues si nos interesa modificar el lsitado de pedidos
+JornalACobrar()-> Metodo Publico pues vamos a necesitar usarlo
+
+
 
 
