@@ -4,9 +4,18 @@ namespace EspacioPedidos
 {
    public class Pedido
     {
-        private int Nro {get;}
+        public int Nro {get;}
         private string Obs {get;}
         private Cliente Cliente;
+
+        public Pedido(int nro, string obs, Cliente cliente, bool estado)
+        {
+            Nro = nro;
+            Obs = obs;
+            Cliente = cliente;
+            Estado = estado;
+        }
+
         public bool Estado {get;}
 
         // metodos //

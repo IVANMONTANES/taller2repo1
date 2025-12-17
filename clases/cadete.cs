@@ -1,14 +1,15 @@
-﻿using EspacioPedidos;
+﻿using System.Dynamic;
+using EspacioPedidos;
 
 namespace EspacioCadete
 {
     public class Cadete
     {
-        private string Id;
+        public string Id {get;}
         private string Nombre;
         private string Direccion;
         private string Telefono;
-        public List<Pedido> ListadoPedidos = new List<Pedido>();
+        public List<Pedido> ListadoPedidos {get;set;} = new List<Pedido>();
 
         public Cadete(string id, string nombre, string direccion, string telefono)
         {
