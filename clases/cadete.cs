@@ -6,10 +6,10 @@ namespace EspacioCadete
     public class Cadete
     {
         public string Id {get;}
-        private string Nombre;
-        private string Direccion;
-        private string Telefono;
-        public List<Pedido> ListadoPedidos {get;set;} = new List<Pedido>();
+        public string Nombre {get;}
+        public string Direccion {get;}
+        public string Telefono {get;}
+        public List<Pedido> ListadoPedidos {get;}= new List<Pedido>();
 
         public Cadete(string id, string nombre, string direccion, string telefono)
         {
@@ -43,5 +43,38 @@ namespace EspacioCadete
             Console.WriteLine($"Direccion: {this.Direccion}");
             Console.WriteLine($"Telefono: {this.Telefono}");
         }
+
+        public void AgregarPedido(Pedido pedido)
+        {
+            ListadoPedidos.Add(pedido);
+        }
+
+        public void EliminarPedido(Pedido pedido)
+        {
+            ListadoPedidos.Remove(pedido);
+        }
+
+        public void MostrarPedidos()
+        {
+            foreach(Pedido pedido in ListadoPedidos)
+            {
+                pedido.MostrarPedido();
+            }
+        }
+
+        public Pedido BuscarPedidoPorNro(int Nro)
+        {
+            // recorremos la lista de pedidos //
+            foreach(Pedido pedido in ListadoPedidos)
+            {
+                if(pedido.Nro == Nro)
+                {
+                    return pedido;
+                }
+            }
+            return null;
+        }
+
+        
     }
 }

@@ -16,7 +16,7 @@ namespace EspacioPedidos
             Estado = estado;
         }
 
-        public bool Estado {get;}
+        public bool Estado {get; private set;}
 
         // metodos //
 
@@ -35,6 +35,20 @@ namespace EspacioPedidos
         {
             VerDireccionCliente();
             Console.WriteLine($"Telefono: {this.Cliente.Telefono}");
+        }
+
+        public void MostrarPedido()
+        {
+            Console.WriteLine("========== PEDIDO =========");
+            Console.WriteLine($"Numero: {Nro}");
+            Console.WriteLine($"Obs: {Obs}");
+            String estadoString = Estado == true ? "despachado" : "pendiente";
+            Console.WriteLine($"Estado: {estadoString}");
+        }
+
+        public void ModificarEstado()
+        {
+            this.Estado = this.Estado == true ? false: true;
         }
     } 
 }

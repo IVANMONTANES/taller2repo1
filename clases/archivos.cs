@@ -1,5 +1,6 @@
 ﻿using EspacioCadete;
 using EspacioCadeteria;
+using EspacioPedidos;
 
 namespace EspacioArchivos
 {
@@ -17,7 +18,7 @@ namespace EspacioArchivos
         }
 
         // metodos para cargar la cadeteria //
-        public static Cadeteria ConvertirCadeteria(string[] lineas)
+        public static Cadeteria ConvertirCadeteria(string[] lineas, List<Cadete> listadoCadetes)
         {
             Cadeteria cadeteria = null;
             bool primeraFilaBienCargada = false;
@@ -38,7 +39,7 @@ namespace EspacioArchivos
                 else
                 {
                     // creamos la cadeteria y lo agregamos a la lista //
-                    cadeteria = new Cadeteria(ColumnasFilaActual[0],ColumnasFilaActual[1]);
+                    cadeteria = new Cadeteria(ColumnasFilaActual[0],ColumnasFilaActual[1],listadoCadetes);
                 }
             }
             return cadeteria;
@@ -93,5 +94,7 @@ namespace EspacioArchivos
             return listadoCadetes;
         
         }
+
+        
     }
 }

@@ -18,10 +18,7 @@ namespace EspacioInterfaz
 
             // tratamos de convertir el contenido a objetos //
             listadoCadetes = Archivos.ConvertirListaCadetes(retornoArchivoCadetes);
-            cadeteria = Archivos.ConvertirCadeteria(retornoArchivosCadeteria);
-
-            // asignamos el listado de cadetes a la cadeteria //
-            cadeteria.ListadoCadetes = listadoCadetes;
+            cadeteria = Archivos.ConvertirCadeteria(retornoArchivosCadeteria,listadoCadetes);
         }
 
         public static bool VerificarCargaCsv(List<Cadete> listadoCadetes,Cadeteria cadeteria)
@@ -77,11 +74,7 @@ namespace EspacioInterfaz
             bool cargadasConExito = VerificarCargaCsv(listadoCadetes,cadeteria);
             if (cargadasConExito)
             {
-                // variable para los pedidos pendientes //
-                List<Pedido> PedidosPendientes = new List<Pedido>();
-                // variable para los numeros de los pedidos //
-                int nro = 1;
-
+                
                 // variable para la opcion elegida //
                 int elegida = default;
                 
@@ -98,14 +91,23 @@ namespace EspacioInterfaz
                         switch (elegida)
                         {
                             case 1: 
-                                PedidosPendientes.Add(cadeteria.DarDeAltaPedido(ref nro));
+                                cadeteria.DarDeAltaPedido();
                                 Console.WriteLine("pedido agregado");
                             break;
 
                             case 2:
-                                cadeteria.AsignarPedido(PedidosPendientes);
+                                cadeteria.AsignarPedido();
                             break;
 
+
+                            case 3:
+                                cadeteria.CambiarEstadoDePedido();
+                            break;
+
+                            case 4:
+                                cadeteria.ReasignarPedido();
+                            break;
+                    
                             case 5:
                                 Console.WriteLine("Jornada finalizada"); 
                             break;
