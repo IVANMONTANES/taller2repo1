@@ -6,6 +6,33 @@ namespace EspacioArchivos
 {
     public static class Archivos
     {
+
+        public static void LeerArchivosCsv(ref List<Cadete> listadoCadetes, ref Cadeteria cadeteria)
+        {
+            // rutas de los archivos //
+            string rutaArchivoCadetes = "archivos/cadetes.csv";
+            string rutaArchivoCadeteria = "archivos/cadeteria.csv";
+            
+            // obtenemos el contenido de los archivos //
+            string[] retornoArchivoCadetes = Archivos.LeerArchivo(rutaArchivoCadetes);
+            string[] retornoArchivosCadeteria = Archivos.LeerArchivo(rutaArchivoCadeteria);
+
+            // tratamos de convertir el contenido a objetos //
+            listadoCadetes = Archivos.ConvertirListaCadetes(retornoArchivoCadetes);
+            cadeteria = Archivos.ConvertirCadeteria(retornoArchivosCadeteria,listadoCadetes);
+        }
+
+        public static bool VerificarCargaCsv(List<Cadete> listadoCadetes,Cadeteria cadeteria)
+        {
+            if(listadoCadetes != null && cadeteria != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public static string[] LeerArchivo(string ruta)
         {
             // verificamos si el archivo existe //

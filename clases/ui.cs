@@ -97,6 +97,11 @@ namespace EspacioUI
             return pedido;
         }
 
+        public static void CartaDarDeAltaPedido()
+        {
+            Console.WriteLine("pedido agregado con exito");
+        }
+
 
         // ui para asignar un pedido //
 
@@ -134,7 +139,7 @@ namespace EspacioUI
         {
             Console.WriteLine("========== OPERACION REALIZADO CON EXITO ==========");
             Console.WriteLine($"se asigno el pedido Nro {pedido.Nro} al siguiente cadete");
-            cadete.MostrarDatos();
+            MostrarDatos(cadete);
         }
 
 
@@ -274,9 +279,54 @@ namespace EspacioUI
         {
             Console.WriteLine("========== OPERACION REALIZADO CON EXITO ==========");
             Console.WriteLine($"se reasigno el pedido Nro {pedido.Nro} al siguiente cadete");
-            cadete2.MostrarDatos();
+            MostrarDatos(cadete2);
             Console.WriteLine($"Cadete que lo tenia antes");
-            cadete1.MostrarDatos();
+            MostrarDatos(cadete1);
+        }
+
+        public static int PedirOpcionValida()
+        {
+            int opcion;
+            string entrada;
+            do
+            {
+                Console.WriteLine("========== SISTEMA CADETERIA ===========");
+                Console.WriteLine("1: Dar de alta pedidos");
+                Console.WriteLine("2: Asignar pedido a cadete");
+                Console.WriteLine("3: Cambiar Estado De Pedido");
+                Console.WriteLine("4: Reasignar Pedido");
+                Console.WriteLine("5: Finalizar Jornada");
+                Console.WriteLine("Ingrese una opcion");
+                entrada = Console.ReadLine();
+            }while(!int.TryParse(entrada,out opcion) || opcion < 1 ||opcion > 5);
+
+            return opcion;
+        }
+
+        public static void EjecutarOperacion(Cadeteria cadeteria,int opcion,ref bool Seguir)
+        {
+            switch (opcion)
+            {
+                case 1: 
+                    cadeteria.DarDeAltaPedido();
+                break;
+
+                case 2:
+                    cadeteria.AsignarPedido();
+                break;
+
+                case 3:
+                    cadeteria.CambiarEstadoDePedido();
+                break;
+
+                case 4:
+                    cadeteria.ReasignarPedido();
+                break;
+
+                case 5:
+                    Seguir = false;
+                break;
+            }
         }
         
 

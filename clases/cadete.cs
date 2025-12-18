@@ -35,14 +35,6 @@ namespace EspacioCadete
             return monto;
         }
 
-        public void MostrarDatos()
-        {
-            Console.WriteLine("=========== CADETE ===========");
-            Console.WriteLine($"Id: {this.Id}");
-            Console.WriteLine($"Nombre: {this.Nombre}");
-            Console.WriteLine($"Direccion: {this.Direccion}");
-            Console.WriteLine($"Telefono: {this.Telefono}");
-        }
 
         public void AgregarPedido(Pedido pedido)
         {

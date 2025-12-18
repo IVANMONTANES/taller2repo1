@@ -51,6 +51,8 @@ namespace EspacioCadeteria
 
             // agregamos el pedido //
             PedidosPendientes.Add(pedido);
+
+            Ui.CartaDarDeAltaPedido();
         }
 
         public Pedido BuscarPedidoPorNro(int Nro)
